@@ -3,15 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Simple Page</title>
+    <title>HPC Matchmaker</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="styles.css">
+
+    <style>
+        *, :after, :before {
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100vh;
+            background-color: #211a52;
+            display: flex;
+        }
+        .content {
+            max-width: 1200px;
+            margin: auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 5px;
+            position: relative; /* Needed for absolutely positioning the divider */
+        }
+        h1 {
+            margin-bottom: 30px !important;
+            color: #211a52;
+            font-size: 34px;
+            font-weight: 600;
+            line-height: 1.294;
+            font-family: Barlow, sans-serif;
+        }
+        h2 {
+            color: #211a52;
+            font-size: 24px;
+            font-weight: 600;
+            line-height: 2.8rem;
+            white-space: normal;
+            font-family: Barlow, sans-serif;
+        }
+        h3 {
+            color: #211a52;
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            line-height: 1.208;
+            font-family: Barlow, sans-serif;
+        }
+        h4 {
+            color: #0f0c09;
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            line-height: 18.99px;
+            font-family: Barlow, sans-serif;
+        }
+        h5 {
+            margin-bottom: 1rem;
+            color: #211a52;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 1.2;
+            font-family: Barlow, sans-serif;
+        }
+        .progress {
+            border-radius: 20px !important;
+            height: 25px;
+        }
+        .progress-bar {
+            background-color: #594fbf !important;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: Barlow, sans-serif;
+            line-height: 1.7;
+        }
+        .remaining-questions {
+            display: flex;
+        }
+        #remaining-questions-count {
+            margin-left: 5px;
+        }
+        .divider {
+            position: absolute; /* Position absolutely for placement */
+            background-color: #ebebef;
+            height: 1px; /* Default height for horizontal divider */
+            width: 100%; /* Full width by default */
+            margin: 30px 0;
+        }
+        .quiz-body {
+            display: flex;
+            justify-content: space-between;
+        }
+        .sections-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%; /* Take full width initially */
+        }
+        .quiz-title-hint {
+            font-size: 14px;
+            font-weight: 400;
+            color: #404f5f;
+            margin-top: 1rem;
+            line-height: 1.7;
+        }
+        .question-content {
+            margin-block: 1rem 2rem;
+        }
+        .form-check {
+            border: 1px solid #d5d8dc;
+            border-radius: 4px;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+            padding-right: 2rem;
+            transition: all .15s ease-in-out;
+            cursor: pointer;
+            height: 50px;
+            display: flex;
+            align-items: center;
+        }
+        .question-option:hover {
+            background-color: #fafafa;
+        }
+        .question-option-content {
+            align-items: center;
+            display: flex;
+            gap: 8px;
+            position: relative;
+            vertical-align: top;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+            font-family: Barlow, sans-serif;
+        }
+        .form-check-label {
+            height: 100%;
+            width: 100%;
+            align-content: center;
+            padding-left: 20px;
+            color: #211a52;
+            font-weight: 400;
+            font-family: Barlow, sans-serif;
+            font-size: 16px;
+            line-height: 24px;
+        }
+        .form-check-input {
+            margin-top: 0 !important;
+        }
+        .form-check-input:checked {
+            background-color: #594fbf;
+            border-color: #594fbf;
+        }
+        .hpc-container-header {
+            margin-top: 1rem;
+        }
+        .hpc-container-header-body {
+            width: 80%;
+            margin-bottom: 30px !important;
+            color: #211a52;
+            font-style: italic;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.7;
+            font-family: Barlow, sans-serif;
+        }
+        .current-hpc {
+            background-color: rgba(223, 142, 46, .08);
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            transition: all .15s ease-in-out;
+        }
+        .current-hpc:hover {
+            background-color: rgba(223, 142, 46, .15);
+            cursor: pointer;
+        }
+        .current-hpc:hover svg {
+            -webkit-transform: translateX(.5rem);
+            transform: translateX(.5rem);
+        }
+        .current-hpc svg {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            transition: all .15s ease-in-out;
+        }
+        .next-btn, .next-previous {
+            align-items: center;
+            display: flex;
+            flex-direction: row;
+            background-color: #594fbf;
+            padding: 0.5rem 1.8rem;
+            transition: all .15s ease-in-out;
+            cursor: pointer;
+            border-radius: 4px;
+            color: #fff;
+            font-family: Barlow, sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .next-btn:hover {
+            background-color: #473f99;
+        }
+        .next-previous {
+            color: #54616e !important;
+            background-color: transparent !important;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            height: 40px;
+        }
+        .button-content {
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+            margin-left: 0;
+            margin-right: 0;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        @media (max-width: 1300px) {
+            .quiz-body {
+                flex-direction: column; /* Stack items vertically below 1300px */
+            }
+
+            .sections-container {
+                flex-direction: column; /* Stack items vertically below 1300px */
+            }
+
+            .divider {
+                position: static; /* Reset to static positioning */
+                width: 1px; /* Change width to 1px for vertical divider */
+                height: 100%; /* Full height for vertical divider */
+                margin: 0 30px; /* Adjust margin for spacing */
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="content">
+        <h1>HPC Matchmaker</h1>
+        <div class="quiz-body">
+            <div class="sections-container">
+                <div class="survey">
+                    <div class="remaining-questions">
+                        <h5>Remaining questions:</h5>
+                        <h5 id="remaining-questions-count">10</h5>
+                    </div>
+                    <div class="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                        <div id="progress-bar" class="progress-bar" style="width: 0%">0%</div>
+                    </div>
+                    <div class="divider"></div>
+                    <h2 id="quiz-title">Which data science area matches your project?</h2>
+                    <p class="quiz-title-hint">Select a single answer from the provided options</p>
+                    <div class="question-content">
+                    </div>
+                    <div class="button-container">
+                        <div class="button-content">
+                            <div class="next-previous">Previous</div>
+                            <div class="next-btn">Next</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divider"></div>
+                <div class="hpc-container">
+                    <div class="hpc-container-header">
+                        <h3>Currently advised HPC</h3>
+                        <p class="hpc-container-header-body">Based on your current answers, we think that the most fit HPC for your research is</p>
+                    </div>
+                    <div class="hpc-container-body">
+                        <div class="current-hpc">
+                            <h4>AI Cloud regular</h4>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1724 12.0013L8.22266 7.05148L9.63687 5.63727L16.0009 12.0013L9.63687 18.3652L8.22266 16.951L13.1724 12.0013Z" fill="#404F5F"></path></svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     
-    <h1>Welcome to My Simple Page</h1>
-
-
 
     <script src="script.js"></script>
 </body>
 </html>
+
+
