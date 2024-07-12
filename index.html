@@ -26,29 +26,38 @@
             height: 100vh;
             background-color: #211a52;
             display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
         }
         .content {
-            max-width: 1200px;
-            margin: auto;
+            width: 80vw;
+            max-width: 900px;
+            min-width: 300px;
             background-color: white;
             padding: 40px;
             border-radius: 5px;
-            position: relative; /* Needed for absolutely positioning the divider */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            font-size: 14px;
+            font-weight: 400;
+            color: #404f5f;
+            margin-top: 1rem;
         }
         h1 {
             margin-bottom: 30px !important;
             color: #211a52;
             font-size: 34px;
             font-weight: 600;
-            line-height: 1.294;
             font-family: Barlow, sans-serif;
         }
         h2 {
             color: #211a52;
             font-size: 24px;
             font-weight: 600;
-            line-height: 2.8rem;
             white-space: normal;
+            margin-top: 40px;
             font-family: Barlow, sans-serif;
         }
         h3 {
@@ -56,7 +65,6 @@
             font-size: 18px;
             font-weight: 500;
             margin-bottom: 30px;
-            line-height: 1.208;
             font-family: Barlow, sans-serif;
         }
         h4 {
@@ -64,7 +72,6 @@
             font-size: 18px;
             font-weight: 600;
             margin: 0;
-            line-height: 18.99px;
             font-family: Barlow, sans-serif;
         }
         h5 {
@@ -72,20 +79,23 @@
             color: #211a52;
             font-size: 16px;
             font-weight: 500;
-            line-height: 1.2;
             font-family: Barlow, sans-serif;
+            line-height: 24px;
         }
-        .progress {
+        .claaudia-text {
+            padding-left: 5px;
+        }
+        .remaining-progress {
             border-radius: 20px !important;
             height: 25px;
+            margin-bottom: 20px;
         }
-        .progress-bar {
+        #remaining-progress-bar {
             background-color: #594fbf !important;
             color: #fff;
             font-size: 16px;
             font-weight: 500;
             font-family: Barlow, sans-serif;
-            line-height: 1.7;
         }
         .remaining-questions {
             display: flex;
@@ -94,11 +104,9 @@
             margin-left: 5px;
         }
         .divider {
-            position: absolute; /* Position absolutely for placement */
             background-color: #ebebef;
-            height: 1px; /* Default height for horizontal divider */
-            width: 100%; /* Full width by default */
-            margin: 30px 0;
+            width: 1px;
+            margin: 0 30px;
         }
         .quiz-body {
             display: flex;
@@ -106,15 +114,22 @@
         }
         .sections-container {
             display: flex;
-            justify-content: space-between;
-            width: 100%; /* Take full width initially */
+            width: 100%;
+        }
+        .survey {
+            flex-grow: 1;
+            padding-right: 10px;
+        }
+        .hpc-container {
+            flex-shrink: 0;
+            padding-left: 10px;
+            max-width: 250px;
         }
         .quiz-title-hint {
             font-size: 14px;
             font-weight: 400;
             color: #404f5f;
             margin-top: 1rem;
-            line-height: 1.7;
         }
         .question-content {
             margin-block: 1rem 2rem;
@@ -127,7 +142,6 @@
             padding-right: 2rem;
             transition: all .15s ease-in-out;
             cursor: pointer;
-            height: 50px;
             display: flex;
             align-items: center;
         }
@@ -142,7 +156,6 @@
             vertical-align: top;
             font-size: 16px;
             font-weight: 400;
-            line-height: 1.6;
             font-family: Barlow, sans-serif;
         }
         .form-check-label {
@@ -154,7 +167,7 @@
             font-weight: 400;
             font-family: Barlow, sans-serif;
             font-size: 16px;
-            line-height: 24px;
+            min-height: 50px;
         }
         .form-check-input {
             margin-top: 0 !important;
@@ -173,30 +186,11 @@
             font-style: italic;
             font-size: 16px;
             font-weight: 400;
-            line-height: 1.7;
             font-family: Barlow, sans-serif;
         }
-        .current-hpc {
-            background-color: rgba(223, 142, 46, .08);
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            padding: 1.5rem;
-            transition: all .15s ease-in-out;
-        }
-        .current-hpc:hover {
-            background-color: rgba(223, 142, 46, .15);
-            cursor: pointer;
-        }
-        .current-hpc:hover svg {
-            -webkit-transform: translateX(.5rem);
-            transform: translateX(.5rem);
-        }
-        .current-hpc svg {
-            -webkit-transform: translateX(0);
-            transform: translateX(0);
-            transition: all .15s ease-in-out;
+        .hpc-name {
+            flex-grow: 1;
+            margin-bottom: 0;
         }
         .next-btn, .next-previous {
             align-items: center;
@@ -219,6 +213,10 @@
         .next-previous {
             color: #54616e !important;
             background-color: transparent !important;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-right: 1.8rem;
+            padding-left: 0.5rem;
         }
         .button-container {
             display: flex;
@@ -234,42 +232,304 @@
             flex-wrap: wrap;
             gap: 16px;
         }
-        @media (max-width: 1300px) {
+        .current-hpc {
+            background-color: rgba(223, 142, 46, .08);
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            transition: all .15s ease-in-out;
+        }
+        .hpc-container-body .current-hpc:hover {
+            background-color: rgba(223, 142, 46, .15);
+            cursor: pointer;
+        }
+        .current-hpc-title {
+            color: #0f0c09;
+            font-size: 16px;
+            font-weight: 600;
+            font-family: Barlow, sans-serif;
+        }
+        .hpc-container-body .current-hpc svg {
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            transition: all .15s ease-in-out;
+        }
+        .hpc-container-body .current-hpc:hover svg {
+            -webkit-transform: translateX(.5rem);
+            transform: translateX(.5rem);
+        }
+        .hpc-link {
+            color: #0f0c09;
+            text-decoration: none;
+        }
+        .survey-tooltip {
+            background-color: #ebebef;
+            border-radius: 50%;
+            height: 15px;
+            position: relative;
+            transition: all .15s ease-in-out;
+            width: 15px;
+        }
+        .survey-tooltip:hover {
+            background-color: #211a52;
+            cursor: pointer;
+        }
+        .survey-tooltip span {
+            color: #211a52;
+            font-size: 12px;
+            font-weight: 600;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+            transition: all .15s ease-in-out;
+        }
+        .survey-tooltip:hover span {
+            color: #fff;
+        }
+        .survey-tooltip:hover .tooltip-text {
+            visibility: visible;
+        }
+        .tooltip-text {
+            border-radius: 4px;
+            bottom: 2rem;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 400;
+            left: -2rem;
+            max-width: 350px;
+            padding: 1rem;
+            visibility: hidden;
+            white-space: normal;
+            width: -webkit-max-content;
+            width: max-content;
+            font-family: Barlow, sans-serif;
+            z-index: 1;
+        }
+        .tooltip-text, .tooltip-text:before {
+            background-color: #211a52;
+            position: absolute;
+        }
+        .tooltip-text:before {
+            bottom: -2.5%;
+            content: "";
+            left: 6.5%;
+            padding: 6px;
+            -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+            z-index: -1;
+        }
+        .finished {
+            display: none;
+        }
+        .finished-content {
+            grid-gap: 5rem;
+            display: grid;
+            gap: 5rem;
+            grid-template-columns: 2fr 1fr;
+        }
+        .finished-content-success {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+        }
+        .finished-success-icon {
+            align-self: center;
+            flex: 1 1;
+            width: 100%;
+            margin-right: 20px;
+        }
+        .success-col {
+            flex: 3 1;
+        }
+        .retake-quiz-button {
+            align-items: center;
+            background-color: transparent;
+            display: flex;
+            gap: 1rem;
+            transition: all .15s ease-in-out;
+            color: #594fbf;
+            font-size: 16px;
+            font-weight: 400;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            font-family: Barlow, sans-serif;
+        }
+        .retake-quiz-button .left-arrow {
+            fill: #594fbf;
+            -webkit-transform: translateX(0);
+            transform: translateX(0);
+            transition: all .15s ease-in-out;
+        }
+        .retake-quiz-button:hover {
+            color: #3a2faa;
+            cursor: pointer;
+        }
+        .retake-quiz-button:hover .left-arrow {
+            fill: #3a2faa;
+            -webkit-transform: translateX(-.5rem);
+            transform: translateX(-.5rem);
+        }
+        .contact-button, .go-to-hpc-btn {
+            background-color: #ebebef;
+            border-radius: 4px;
+            padding: 0.8rem 1.5rem;
+            transition: all .15s ease-in-out;
+            color: #211a52;
+            font-size: 14px;
+            font-weight: 500;
+            font-family: Barlow, sans-serif;
+            text-decoration: none;
+        }
+        .contact-button:hover, .go-to-hpc-btn:hover {
+            background-color: #d5d8dc;
+            cursor: pointer;
+        }
+        .divider-horizontal {
+            background-color: #ebebef;
+            height: 1px;
+            width: 100%;
+        }
+        .reset-btn {
+            background-color: transparent;
+            border: 1px solid #d5d8dc;
+            border-radius: 4px;
+            height: -webkit-max-content;
+            height: max-content;
+            padding: 10px 20px;
+            transition: all .15s ease-in-out;
+            text-decoration: none;
+            cursor: pointer;
+            display: inline-block;
+            color: #211a52;
+            font-family: Barlow, sans-serif;
+            font-size: 13.3333px;
+        }
+        .reset-btn:hover {
+            background-color: #fafafa;
+            cursor: pointer;
+        }
+        .spec {
+            padding-block: 3rem;
+        }
+        .spec-content {
+            background-color: rgba(223, 142, 46, .08);
+            border-radius: 4px;
+            border-top: 3px solid #df8e2e;
+            padding: 4rem 3rem;
+            margin-top: 20px;
+        }
+        .spec-content-body {
+            display: flex;
+            gap: 1rem;
+        }
+        .option-item {
+            min-width: 27rem;
+            padding-top: 1rem;
+        }
+        .option-item-title {
+            color: #211a52;
+            font-size: 13px;
+            font-weight: 600;
+            font-family: Barlow, sans-serif;
+        }
+        .option-item-item {
+            align-items: center;
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .option-item-item-body {
+            color: #404f5f;
+            font-size: 14px;
+            font-weight: 400;
+            font-family: Barlow, sans-serif;
+            margin: 0;
+        }
+        #spec-title {
+            margin-top: 0;
+        }
+        .spec-content-header {
+            margin-bottom: 20px;
+        }
+        .finish-header {
+            display: flex; 
+            justify-content: space-between;
+            flex-direction: row-reverse;
+        }
+        @media (max-width: 920px) {
+            body {
+                height: 100%;
+            }
+            .content {
+                width: 90vw;
+                padding: 20px;
+            }
             .quiz-body {
-                flex-direction: column; /* Stack items vertically below 1300px */
+                flex-direction: column;
             }
-
             .sections-container {
-                flex-direction: column; /* Stack items vertically below 1300px */
+                flex-direction: column;
             }
-
             .divider {
-                position: static; /* Reset to static positioning */
-                width: 1px; /* Change width to 1px for vertical divider */
-                height: 100%; /* Full height for vertical divider */
-                margin: 0 30px; /* Adjust margin for spacing */
+                height: 1px;
+                width: 100%;
+                margin: 30px 0;
+            }
+            .hpc-container {
+                max-width: 100%;
+            }
+            .finished-content {
+                grid-template-columns: 1fr;
+                gap: 0rem;
+                grid-gap: 0rem;
+            }
+            .finished-content-success {
+                display: block;
+            }
+        }
+        @media (max-width: 600px) {
+            .finish-header {
+                display: block;
+            }
+            h1 {
+                font-size: 20px;
+            }
+            .claaudia-text {
+                font-size: 12px;
+            }
+            .content {
+                width: 95vw;
+                padding: 15px;
+            }
+            .retake-quiz-button {
+                margin-bottom: 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="content">
-        <h1>HPC Matchmaker</h1>
+        <div style="display: flex; justify-content: space-between;">
+            <div style="display: flex; align-items: center;">
+                <h1>HPC Matchmaker</h1>
+                <h5 class="claaudia-text">By CLAAUDIA</h5>
+            </div>
+            <button type="button" id="reset-btn" class="reset-btn">Reset</button>
+        </div>
+        <div class="progress remaining-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+            <div id="remaining-progress-bar" class="progress-bar" style="width: 0%">0%</div>
+        </div>
         <div class="quiz-body">
             <div class="sections-container">
                 <div class="survey">
-                    <div class="remaining-questions">
-                        <h5>Remaining questions:</h5>
-                        <h5 id="remaining-questions-count">10</h5>
-                    </div>
-                    <div class="progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
-                        <div id="progress-bar" class="progress-bar" style="width: 0%">0%</div>
-                    </div>
-                    <div class="divider"></div>
-                    <h2 id="quiz-title">Which data science area matches your project?</h2>
+                    <h2 id="quiz-title"></h2>
                     <p class="quiz-title-hint">Select a single answer from the provided options</p>
-                    <div class="question-content">
-                    </div>
+                    <div class="question-content"></div>
                     <div class="button-container">
                         <div class="button-content">
                             <div class="next-previous">Previous</div>
@@ -284,13 +544,70 @@
                         <p class="hpc-container-header-body">Based on your current answers, we think that the most fit HPC for your research is</p>
                     </div>
                     <div class="hpc-container-body">
-                        <div class="current-hpc">
-                            <h4>AI Cloud regular</h4>
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1724 12.0013L8.22266 7.05148L9.63687 5.63727L16.0009 12.0013L9.63687 18.3652L8.22266 16.951L13.1724 12.0013Z" fill="#404F5F"></path></svg>
+                        <a id="ucloud" class="hpc-link" href="https://www.researcher.aau.dk/guides/research-data/high-performance-computing/deic-hpc#interactive-hpc-(type-1)-(via-the-ucloud-platform)" target="_blank">
+                            <div class="current-hpc">
+                                <h4 class="current-hpc-title">UCloud</h4>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1724 12.0013L8.22266 7.05148L9.63687 5.63727L16.0009 12.0013L9.63687 18.3652L8.22266 16.951L13.1724 12.0013Z" fill="#404F5F"></path></svg>
+                            </div>
+                        </a>
+                        <a id="aicloud" class="hpc-link" href="https://www.researcher.aau.dk/guides/research-data/high-performance-computing/ai-cloud" target="_blank">
+                            <div class="current-hpc">
+                                <h4 class="current-hpc-title">AI Cloud</h4>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1724 12.0013L8.22266 7.05148L9.63687 5.63727L16.0009 12.0013L9.63687 18.3652L8.22266 16.951L13.1724 12.0013Z" fill="#404F5F"></path></svg>
+                            </div>
+                        </a>
+                        <a id="ailab" class="hpc-link" href="https://www.researcher.aau.dk/guides/research-data/high-performance-computing/ai-lab" target="_blank">
+                            <div class="current-hpc">
+                                <h4 class="current-hpc-title">AI-LAB</h4>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1724 12.0013L8.22266 7.05148L9.63687 5.63727L16.0009 12.0013L9.63687 18.3652L8.22266 16.951L13.1724 12.0013Z" fill="#404F5F"></path></svg>
+                            </div>
+                        </a>
+                        <a id="strato" class="hpc-link" href="https://www.researcher.aau.dk/guides/research-data/high-performance-computing/strato" target="_blank">
+                            <div class="current-hpc">
+                                <h4 class="current-hpc-title">Strato</h4>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1724 12.0013L8.22266 7.05148L9.63687 5.63727L16.0009 12.0013L9.63687 18.3652L8.22266 16.951L13.1724 12.0013Z" fill="#404F5F"></path></svg>
+                            </div>
+                        </a>
+                        <a class="hpc-link" href="https://www.researcher.aau.dk/guides/research-data/high-performance-computing/deic-hpc#lumi-capability-hpc-(type-5)" target="_blank">
+                            <div id="lumi" class="current-hpc">
+                                <h4 class="current-hpc-title">LUMI</h4>
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.1724 12.0013L8.22266 7.05148L9.63687 5.63727L16.0009 12.0013L9.63687 18.3652L8.22266 16.951L13.1724 12.0013Z" fill="#404F5F"></path></svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="finished">
+            <div class="divider-horizontal"></div>
+            <div class="spec">
+                <div class="finish-header">
+                    <button type="button" id="retake-quiz-btn" class="retake-quiz-button"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="left-arrow"><path d="M3.8284 9.0001L9.1924 14.3641L7.7782 15.7783L6.79994e-07 8.0001L7.7782 0.221999L9.1924 1.6362L3.8284 7.0001L16 7.0001L16 9.0001L3.8284 9.0001Z"></path></svg>Retake the quiz</button>
+                    <h4>Based on your answers, we recommend:</h4>
+                </div>
+                <div class="spec-content">
+                    <div class="spec-content-header">
+                        <div style="display: flex; justify-content: space-between;">
+                            <h2 id="spec-title">UCloud</h2>
+                            <a class="go-to-hpc-btn" href="https://www.researcher.aau.dk/guides/research-data/high-performance-computing/deic-hpc#interactive-hpc-(type-1)-(via-the-ucloud-platform)">Go to UCloud page</a>
+                        </div>
+                    </div>
+                    <div class="divider-horizontal"></div>
+                    <div class="spec-content-body">
+                        <div class="option-item">
+                            <p class="option-item-title">HARDWARE SPECIFICATIONS</p>
+                            <div class="option-item-item">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 64 VCPU</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM10 8.5858L7.17157 5.75736L5.75736 7.17157L8.5858 10L5.75736 12.8284L7.17157 14.2426L10 11.4142L12.8284 14.2426L14.2426 12.8284L11.4142 10L14.2426 7.17157L12.8284 5.75736L10 8.5858Z" fill="#CC445B"></path></svg>                                    <p class="option-item-item-body">Up to 64 VCPU</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     
@@ -298,5 +615,4 @@
     <script src="script.js"></script>
 </body>
 </html>
-
 
