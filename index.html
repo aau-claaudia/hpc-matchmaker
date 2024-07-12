@@ -425,11 +425,11 @@
         }
         .spec-content-body {
             display: flex;
-            gap: 1rem;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
         .option-item {
-            min-width: 27rem;
-            padding-top: 1rem;
+            padding-top: .5rem;
         }
         .option-item-title {
             color: #211a52;
@@ -452,6 +452,7 @@
         }
         #spec-title {
             margin-top: 0;
+            align-self: flex-end;
         }
         .spec-content-header {
             margin-bottom: 20px;
@@ -585,7 +586,7 @@
                     <button type="button" id="retake-quiz-btn" class="retake-quiz-button"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="left-arrow"><path d="M3.8284 9.0001L9.1924 14.3641L7.7782 15.7783L6.79994e-07 8.0001L7.7782 0.221999L9.1924 1.6362L3.8284 7.0001L16 7.0001L16 9.0001L3.8284 9.0001Z"></path></svg>Retake the quiz</button>
                     <h4>Based on your answers, we recommend:</h4>
                 </div>
-                <div class="spec-content">
+                <div id="spec-ucloud" class="spec-content" style="display: none;">
                     <div class="spec-content-header">
                         <div style="display: flex; justify-content: space-between;">
                             <h2 id="spec-title">UCloud</h2>
@@ -597,17 +598,335 @@
                         <div class="option-item">
                             <p class="option-item-title">HARDWARE SPECIFICATIONS</p>
                             <div class="option-item-item">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
                                 <p class="option-item-item-body">Up to 64 VCPU</p>
                             </div>
                             <div class="option-item-item">
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM10 8.5858L7.17157 5.75736L5.75736 7.17157L8.5858 10L5.75736 12.8284L7.17157 14.2426L10 11.4142L12.8284 14.2426L14.2426 12.8284L11.4142 10L14.2426 7.17157L12.8284 5.75736L10 8.5858Z" fill="#CC445B"></path></svg>                                    <p class="option-item-item-body">Up to 64 VCPU</p>
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 384 GB memory</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM10 8.5858L7.17157 5.75736L5.75736 7.17157L8.5858 10L5.75736 12.8284L7.17157 14.2426L10 11.4142L12.8284 14.2426L14.2426 12.8284L11.4142 10L14.2426 7.17157L12.8284 5.75736L10 8.5858Z" fill="#CC445B"></path></svg>                                    
+                                <p class="option-item-item-body">No GPU access</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Unlimited shared temporary storage</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="option-item">
+                                <p class="option-item-title">KEY FEATURES</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">User-Friendly Interface</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Suitable for interactive jobs</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Can handle sensitive data</p>
+                                </div>
+                            </div>
+                            <div class="option-item">
+                                <p class="option-item-title">REQUIRED SKILLS & KNOWLEDGE</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Minimal programming skills</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="option-item">
+                                <p class="option-item-title">DATA</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Data categories 0, 1, 2, 3</p>
+                                </div>
+                            </div>
+                            <div class="option-item">
+                                <p class="option-item-title">INTEGRATIONS</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Possible to add GUI</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Possible use of web browser</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="spec-aicloud" class="spec-content" style="display: none;">
+                    <div class="spec-content-header">
+                        <div style="display: flex; justify-content: space-between;">
+                            <h2 id="spec-title">AI Cloud</h2>
+                            <a class="go-to-hpc-btn" href="https://www.researcher.aau.dk/guides/research-data/high-performance-computing/ai-cloud">Go to AI Cloud page</a>
+                        </div>
+                    </div>
+                    <div class="divider-horizontal"></div>
+                    <div class="spec-content-body">
+                        <div class="option-item">
+                            <p class="option-item-title">HARDWARE SPECIFICATIONS</p>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM10 8.5858L7.17157 5.75736L5.75736 7.17157L8.5858 10L5.75736 12.8284L7.17157 14.2426L10 11.4142L12.8284 14.2426L14.2426 12.8284L11.4142 10L14.2426 7.17157L12.8284 5.75736L10 8.5858Z" fill="#CC445B"></path></svg>                                    
+                                <p class="option-item-item-body">Non vCPU centric system</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 1000 GB network storage</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 1500 GB memory</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 16 GB GPU</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 30000 GB shared temporary storage</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="option-item">
+                                <p class="option-item-title">KEY FEATURES</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">User-Friendly Interface</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Suitable for interactive jobs</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Can handle sensitive data</p>
+                                </div>
+                            </div>
+                            <div class="option-item">
+                                <p class="option-item-title">REQUIRED SKILLS & KNOWLEDGE</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Linux terminal</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Linux terminal</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Programming skills</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Containers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="option-item">
+                                <p class="option-item-title">DATA</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Data categories 0, 1</p>
+                                </div>
+                            </div>
+                            <div class="option-item">
+                                <p class="option-item-title">INTEGRATIONS</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM10 8.5858L7.17157 5.75736L5.75736 7.17157L8.5858 10L5.75736 12.8284L7.17157 14.2426L10 11.4142L12.8284 14.2426L14.2426 12.8284L11.4142 10L14.2426 7.17157L12.8284 5.75736L10 8.5858Z" fill="#CC445B"></path></svg>                                    
+                                    <p class="option-item-item-body">Not possible to add GUI</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM10 8.5858L7.17157 5.75736L5.75736 7.17157L8.5858 10L5.75736 12.8284L7.17157 14.2426L10 11.4142L12.8284 14.2426L14.2426 12.8284L11.4142 10L14.2426 7.17157L12.8284 5.75736L10 8.5858Z" fill="#CC445B"></path></svg>                                    
+                                    <p class="option-item-item-body">Not possible use of web browser</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="spec-ailab" class="spec-content" style="display: none;">
+                    <div class="spec-content-header">
+                        <div style="display: flex; justify-content: space-between;">
+                            <h2 id="spec-title">AI-LAB</h2>
+                            <a class="go-to-hpc-btn" href="https://www.researcher.aau.dk/guides/research-data/high-performance-computing/ai-lab">Go to AI-LAB page</a>
+                        </div>
+                    </div>
+                    <div class="divider-horizontal"></div>
+                    <div id="spec-ailab" class="spec-content-body">
+                        <div class="option-item">
+                            <p class="option-item-title">HARDWARE SPECIFICATIONS</p>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM10 8.5858L7.17157 5.75736L5.75736 7.17157L8.5858 10L5.75736 12.8284L7.17157 14.2426L10 11.4142L12.8284 14.2426L14.2426 12.8284L11.4142 10L14.2426 7.17157L12.8284 5.75736L10 8.5858Z" fill="#CC445B"></path></svg>                                    
+                                <p class="option-item-item-body">Non vCPU centric system</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 1000 GB network storage</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 1500 GB memory</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 16 GB GPU</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 30000 GB shared temporary storage</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="option-item">
+                                <p class="option-item-title">KEY FEATURES</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">User-Friendly Interface</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Suitable for interactive jobs</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Can handle sensitive data</p>
+                                </div>
+                            </div>
+                            <div class="option-item">
+                                <p class="option-item-title">REQUIRED SKILLS & KNOWLEDGE</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Linux terminal</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Linux terminal</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Programming skills</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Containers</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="option-item">
+                                <p class="option-item-title">DATA</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Data categories 0, 1</p>
+                                </div>
+                            </div>
+                            <div class="option-item">
+                                <p class="option-item-title">INTEGRATIONS</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM10 8.5858L7.17157 5.75736L5.75736 7.17157L8.5858 10L5.75736 12.8284L7.17157 14.2426L10 11.4142L12.8284 14.2426L14.2426 12.8284L11.4142 10L14.2426 7.17157L12.8284 5.75736L10 8.5858Z" fill="#CC445B"></path></svg>                                    
+                                    <p class="option-item-item-body">Not possible to add GUI</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM10 8.5858L7.17157 5.75736L5.75736 7.17157L8.5858 10L5.75736 12.8284L7.17157 14.2426L10 11.4142L12.8284 14.2426L14.2426 12.8284L11.4142 10L14.2426 7.17157L12.8284 5.75736L10 8.5858Z" fill="#CC445B"></path></svg>                                    
+                                    <p class="option-item-item-body">Not possible use of web browser</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="spec-strato" class="spec-content" style="display: none;">
+                    <div class="spec-content-header">
+                        <div style="display: flex; justify-content: space-between;">
+                            <h2 id="spec-title">Strato</h2>
+                            <a class="go-to-hpc-btn" href="https://www.researcher.aau.dk/guides/research-data/high-performance-computing/strato">Go to Strato page</a>
+                        </div>
+                    </div>
+                    <div class="divider-horizontal"></div>
+                    <div id="spec-ailab" class="spec-content-body">
+                        <div class="option-item">
+                            <p class="option-item-title">HARDWARE SPECIFICATIONS</p>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 16 VCPU</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 5000 GB network storage</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 32 GB memory</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                <p class="option-item-item-body">Up to 0 GB GPU</p>
+                            </div>
+                            <div class="option-item-item">
+                                <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM10 8.5858L7.17157 5.75736L5.75736 7.17157L8.5858 10L5.75736 12.8284L7.17157 14.2426L10 11.4142L12.8284 14.2426L14.2426 12.8284L11.4142 10L14.2426 7.17157L12.8284 5.75736L10 8.5858Z" fill="#CC445B"></path></svg>                                    
+                                <p class="option-item-item-body">No shared temporary storage</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="option-item">
+                                <p class="option-item-title">KEY FEATURES</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Linux-Based Virtual Platform</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Customizable Virtual Machines</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">CPU and GPU Components</p>
+                                </div>
+                            </div>
+                            <div class="option-item">
+                                <p class="option-item-title">REQUIRED SKILLS & KNOWLEDGE</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Linux terminal</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Programming skills</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">SSH Connection</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="option-item">
+                                <p class="option-item-title">DATA</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Data categories 0, 1</p>
+                                </div>
+                            </div>
+                            <div class="option-item">
+                                <p class="option-item-title">INTEGRATIONS</p>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Possible to add GUI</p>
+                                </div>
+                                <div class="option-item-item">
+                                    <svg width="15" height="15" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 20C4.47715 20 0 15.5228 0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20ZM9.0026 14L16.0737 6.92893L14.6595 5.51472L9.0026 11.1716L6.17421 8.3431L4.75999 9.7574L9.0026 14Z" fill="#0E8563"></path></svg>
+                                    <p class="option-item-item-body">Possible use of web browser</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
     

@@ -143,6 +143,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttonContent = document.querySelector('.button-content');
     const quizBody = document.querySelector('.quiz-body');
     const finishedContent = document.querySelector('.finished');
+    const specUcloudContent = document.getElementById('spec-ucloud');
+    const specAicloudContent = document.getElementById('spec-aicloud');
+    const specAilabContent = document.getElementById('spec-ailab');
+    const specStratoContent = document.getElementById('spec-strato');
     const resetButton = document.getElementById('reset-btn');
     const retakeQuizButton = document.getElementById('retake-quiz-btn');
 
@@ -240,6 +244,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function displayResult(result) {
         quizBody.style.display = 'none';
+        if (result == "AI-LAB") {
+            specAilabContent.style.display = 'block';
+        } else if (result == "AI Cloud") {
+            specAicloudContent.style.display = 'block';
+        } else if (result == "UCloud") {
+            specUcloudContent.style.display = 'block';
+        } else {
+            specStratoContent.style.display = 'block';
+        }
         finishedContent.style.display = 'block';
         questionTitle.textContent = `Result: ${result}`;
         questionTitleHint.textContent = 'Based on your answers, the selection of HPC has been tailored to the option fitting your needs. You may now take a closer look at the result of the quiz and make sure it fulfils your expectations as well as suits your project requirements.';
@@ -279,7 +292,13 @@ document.addEventListener('DOMContentLoaded', () => {
         currentPath = [];
         currentQuestionIndex = 0;
         quizBody.style.display = 'block';
+
+        specAilabContent.style.display = 'none';
+        specAicloudContent.style.display = 'none';
+        specUcloudContent.style.display = 'none';
+        specStratoContent.style.display = 'none';
         finishedContent.style.display = 'none';
+
         renderQuestion();
         resetButton.style.display = 'block';
     });
